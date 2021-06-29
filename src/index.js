@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider, connect } from 'react-redux';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { store } from './redux/store';
+
+const mapStateToProps = (state) => {
+  return {
+    username: state.username,
+    phone: state.phone
+  }
+}
+
+const WrappedApp = connect(mapStateToProps)(App)
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <WrappedApp />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -16,7 +16,7 @@ function reducer(state, action) {
     return state;
 }
 
-const store = createStore(reducer, initialState);
+export const store = createStore(reducer, initialState);
 
 console.log(store.getState())
 
@@ -30,10 +30,10 @@ const changePhone = {
     payload: 'TEST'
 }
 
-store.dispatch(changeUsername)
+//store.dispatch(changeUsername)
 
-console.log(store.getState())
+//console.log(store.getState())
 
-store.dispatch(changePhone)
+//store.dispatch(changePhone)
 
-console.log(store.getState())
+//console.log(store.getState())
