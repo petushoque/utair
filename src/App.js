@@ -27,8 +27,8 @@ function App() {
               <button className='button' type='submit'>Войти</button>
               <p>Нет аккаунта?</p>
               <Link to='register'>Зарегистрируйтесь</Link>
+              <Link className='go-back-arrow' to='/'/>
             </form>
-            <Link className='go-back-arrow' to='/'/>
           </Route>
         </Switch>
       </div>

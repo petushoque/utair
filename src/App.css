@@ -60,8 +60,10 @@
 .go-back-arrow {
   position: absolute;
   background-image: url(./images/icon-back.svg);
-  width: 20px;
-  height: 20px;
-  top: 50px;
-  left: 5px;
+  background-size: 18px 15px;
+  background-position: center;
+  width: 18px;
+  height: 15px;
+  top: 32px;
+  left: 18px;
 }
