@@ -9,6 +9,20 @@ function App() {
   const [loader, setLoader] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+  const handleLogin = () => {
+    console.log('Login function will be here')
+  }
+
+  const handleInputChecker = (e) => {
+    console.log(e.target.validity)
+    if (e.target.validity.patternMismatch) {
+      console.log('Wrong input')
+    }
+    else {
+      console.log('YES')
+    }
+  }
+
   return (
     <BrowserRouter>    
       <div className='app'>
@@ -22,11 +36,19 @@ function App() {
           </Route>
 
           <Route exact path='/login'>
-            <form className='login'>
-              <input placeholder='Номер телефона или Email'/>
+            <form 
+              className='login'
+              onSubmit={() => handleLogin()}>
+              <input 
+                className='input' 
+                type='text' 
+                name='login-input' 
+                pattern="\+[0-9]{1,4}[0-9]{1,10}|(.*)@(.*)\.[a-z]{2,5}" 
+                placeholder='Номер телефона или Email'
+                onInput={(e) => handleInputChecker(e)}/>
               <button className='button' type='submit'>Войти</button>
               <p>Нет аккаунта?</p>
-              <Link to='register'>Зарегистрируйтесь</Link>
+              <Link className='login__to-register-link' to='register'>Зарегистрируйтесь</Link>
               <Link className='go-back-arrow' to='/'/>
             </form>
           </Route>
