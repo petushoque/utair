@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Redirect, Route, Switch, BrowserRouter, Link } from 'react-router-dom';
 
 import * as api from './utils/api'
@@ -10,6 +10,17 @@ function App() {
 
   const [loader, setLoader] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      return
+    }
+    api.takeTokens(generateRandomUuid())
+    .then((res) => {
+      localStorage.setItem('token', res.token)
+      localStorage.setItem('refresh_token', res.refresh_token)
+    })
+  }, [])
 
   const handleLogin = () => {
     console.log('Login function will be here')
@@ -30,8 +41,6 @@ function App() {
         return v.toString(16);
     });
   }
-
-  api.takeTokens(generateRandomUuid())
 
   return (
     <BrowserRouter>    
