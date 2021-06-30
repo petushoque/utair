@@ -71,10 +71,27 @@
 
 .login p {
   align-self: flex-start;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  font-size: 14px;
+  line-height: 24px;
+  color: #8090A6;
+}
+
+.login button {
+  margin: 41px 0 42px 0;
 }
 
 .login .login__to-register-link {
   align-self: flex-start;
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  font-size: 14px;
+  line-height: 24px;
+  color: #003594;
+  text-decoration: none;
 }
 
 .go-back-arrow {
