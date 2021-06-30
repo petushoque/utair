@@ -1,4 +1,5 @@
-export const BASE_URL = 'https://www.utair.ru/mobile/api/v8';
+export const BASE_URL = 'https://cors-anywhere.herokuapp.com/https://www.utair.ru/mobile/api/v8';
+// https://cors-anywhere.herokuapp.com/ - обходной путь для обращения к api
 
 function checkResponse (res) {
     if (res.ok) {
