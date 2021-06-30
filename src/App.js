@@ -26,6 +26,10 @@ function App() {
     console.log('Login function will be here')
   }
 
+  const handleRegister = () => {
+    console.log('Register function will be here')
+  }
+
   const handleInputChecker = (e) => {
     if (e.target.validity.valid) {      
       console.log('YES')
@@ -71,6 +75,33 @@ function App() {
               <Link className='go-back-arrow' to='/'/>
             </form>
           </Route>
+
+          <Route exact path='/register'>
+            <form 
+              className='register'
+              onSubmit={() => handleRegister()}>
+              <div>
+                <input 
+                  className='input' 
+                  type='tel' 
+                  name='register-input' 
+                  placeholder='Номер телефона'
+                  maxlength='12'/>
+                <p>Укажите ваш номер телефона. Он будет использоваться для входа в приложение</p>
+              </div>
+              <div>
+                <div className='register__agreement'>
+                  <input id='agreement' type='checkbox'/>
+                  <label for='agreement'>
+                    Я ознакомлен с условиями использования моих персональных данных и даю согласие на их обработку
+                  </label>
+                </div>
+                <button className='button' type='submit'>Продолжить</button>
+              </div>
+              <Link className='go-back-arrow' to='/'/>
+            </form>
+          </Route>
+
         </Switch>
       </div>
     </BrowserRouter>

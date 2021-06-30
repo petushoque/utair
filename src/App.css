@@ -104,3 +104,43 @@
   top: 32px;
   left: 18px;
 }
+
+.register {
+  width: 100%;
+  height: 100vh;
+  padding: 92px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.register p {
+  font-family: Arial;
+  font-size: 12px;
+  line-height: 16px;
+  color: #8090A6;
+  margin: 0;
+  padding: 0;
+}
+
+.register button {
+  margin: 16px 0 0 0;
+}
+
+.register__agreement {
+  display: flex;
+  flex-direction: row;
+}
+
+.register__agreement label {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: #0E1318;
+}
