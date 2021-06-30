@@ -14,12 +14,11 @@ function App() {
   }
 
   const handleInputChecker = (e) => {
-    console.log(e.target.validity)
-    if (e.target.validity.patternMismatch) {
-      console.log('Wrong input')
-    }
-    else {
+    if (e.target.validity.valid) {      
       console.log('YES')
+    }
+    else {      
+      console.log('Wrong input')
     }
   }
 
