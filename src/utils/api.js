@@ -7,21 +7,21 @@ function checkResponse (res) {
     return Promise.reject(`Ошибка ${res.status}: ${res.statusText}`);
 }
 
-export function authorize (email, password) {
+export function takeTokens (uuid) {
     return fetch(`${BASE_URL}/sessions/guest`, {
       headers: {
         'Content-Type': 'application/json',
       },
       method: 'POST',
       body: JSON.stringify({
-        "appVersion":"Web",
-        "brandName":"Web",
-        "lang":"ru",
-        "model":"Web",
-        "osVersion":"Web",
-        "platform":"web",
-        "screenResolution":"Web",
-        "udid":"65eeaed8-ce5e-414f-9193-5246b913bdec"
+        appVersion:"Web",
+        brandName:"Web",
+        lang:"ru",
+        model:"Web",
+        osVersion:"Web",
+        platform:"web",
+        screenResolution:"Web",
+        udid: uuid,
       })
     })
     .then(res => checkResponse(res))

@@ -4,6 +4,8 @@ import React from 'react';
 import { useState } from 'react'
 import { Redirect, Route, Switch, BrowserRouter, Link } from 'react-router-dom';
 
+import * as api from './utils/api'
+
 function App() {
 
   const [loader, setLoader] = useState('');
@@ -28,6 +30,8 @@ function App() {
         return v.toString(16);
     });
   }
+
+  api.takeTokens(generateRandomUuid())
 
   return (
     <BrowserRouter>    
