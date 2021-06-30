@@ -83,22 +83,24 @@ function App() {
               <div>
                 <input 
                   className='input' 
-                  type='tel' 
+                  type='number' 
                   name='register-input' 
                   placeholder='Номер телефона'
-                  maxlength='12'/>
+                  required
+                  maxLength='12'/>
                 <p>Укажите ваш номер телефона. Он будет использоваться для входа в приложение</p>
               </div>
               <div>
                 <div className='register__agreement'>
                   <input id='agreement' type='checkbox'/>
-                  <label for='agreement'>
+                  <label htmlFor='agreement'>
                     Я ознакомлен с условиями использования моих персональных данных и даю согласие на их обработку
                   </label>
                 </div>
                 <button className='button' type='submit'>Продолжить</button>
               </div>
               <Link className='go-back-arrow' to='/'/>
+              <h2 className='register__title'>Регистрация в Utair</h2>
             </form>
           </Route>
 
