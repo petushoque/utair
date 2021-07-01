@@ -16,13 +16,17 @@ function Confirmation(props) {
         <form 
             className='confirmation'
             onSubmit={(e) => handleSubmit(e)}>
-            <input maxLength='1'/>
-            <input />
-            <input />
-            <input />
+            <p>Введите код из SMS, отправленный на номер +7 (916) 792-89-70</p>
+            <div className='confirmation__nambers'>
+                <input maxLength='1' type='text' pattern='[0-9]'/>
+                <input maxLength='1' type='text' pattern='[0-9]'/>
+                <input maxLength='1' type='text' pattern='[0-9]'/>
+                <input maxLength='1' type='text' pattern='[0-9]'/>
+            </div>
+
             <button className='button' type='submit'>Войти</button>
             <Link className='go-back-arrow' to='/'/>
-            <h2 className='register__title'>Подтверждение</h2>
+            <h2 className='confirmation__title'>Подтверждение</h2>
         </form>
     )
 }
