@@ -6,6 +6,7 @@ const initialState = {
     email: '',
     token: '',
     refresh_token: '',
+    attemptId: '',
 }
 
 function reducer(state, action) {
@@ -18,6 +19,8 @@ function reducer(state, action) {
             return { ...state, token: action.payload }
         case 'CHANGE_REFRESH_TOKEN':
             return { ...state, refresh_token: action.payload }
+        case 'CHANGE_ATTEMPT_ID':
+            return { ...state, attemptId: action.payload }
     }
     return state;
 }

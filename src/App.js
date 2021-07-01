@@ -34,8 +34,21 @@ function App() {
     .catch((err) => console.log(err))
   }, [])
 
-  const handleLogin = (e) => {
+  const handleLogin = (phone) => {
     console.log('Login function will be here')
+
+    const token = store.getState().token;
+
+    api.login(token, phone)
+    .then((res) => {
+      console.log(res)
+      const changeAttemptId = {
+        type: 'CHANGE_ATTEMPT_ID',
+        payload: res.token
+      }
+      store.dispatch(changeAttemptId);
+    })
+    .catch((err) => console.log(err))
   }
 
   const handleRegister = (phone) => {
@@ -46,15 +59,7 @@ function App() {
 
     api.register(token, phone, time)
     .then((res) => console.log(res))
-  }
-
-  const handleInputChecker = (e) => {
-    if (e.target.validity.valid) {      
-      console.log('YES')
-    }
-    else {      
-      console.log('Wrong input')
-    }
+    .catch((err) => console.log(err))
   }
   
   function generateRandomUuid() {
@@ -91,3 +96,19 @@ function App() {
 }
 
 export default App;
+
+
+/**
+ * 
+ * 
+ *   const handleInputChecker = (e) => {
+    if (e.target.validity.valid) {      
+      console.log('YES')
+    }
+    else {      
+      console.log('Wrong input')
+    }
+  }
+ * 
+ * 
+ */

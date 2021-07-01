@@ -1,19 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { store } from '../redux/store';
 
 function Login (props) {
 
-    const changePhone = {
-        type: 'CHANGE_PHONE',
-        payload: 'TEST'
-    }
-
-    console.log(store.getState())
+    const [phone, setPhone] = useState();
 
     const handleLogin = (e) => {        
         e.preventDefault()
-        props.onLogin()
+        props.onLogin(phone)
     }
 
     const handleInputChecker = (e) => {
@@ -30,7 +26,8 @@ function Login (props) {
                 name='login-input' 
                 pattern="\+[0-9]{1,4}[0-9]{1,10}|(.*)@(.*)\.[a-z]{2,5}" 
                 placeholder='Номер телефона или Email'
-                onInput={(e) => handleInputChecker(e)}/>
+                defaultValue={phone}
+                onInput={(e) => setPhone(e.target.value)}/>
             <button className='button' type='submit'>Войти</button>
             <p>Нет аккаунта?</p>
             <Link className='login__to-register-link' to='register'>Зарегистрируйтесь</Link>
