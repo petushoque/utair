@@ -22,11 +22,13 @@ function App() {
     })
   }, [])
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault()
     console.log('Login function will be here')
   }
 
-  const handleRegister = () => {
+  const handleRegister = (e) => {
+    e.preventDefault()
     console.log('Register function will be here')
   }
 
@@ -61,7 +63,7 @@ function App() {
           <Route exact path='/login'>
             <form 
               className='login'
-              onSubmit={() => handleLogin()}>
+              onSubmit={(e) => handleLogin(e)}>
               <input 
                 className='input' 
                 type='text' 
@@ -79,11 +81,11 @@ function App() {
           <Route exact path='/register'>
             <form 
               className='register'
-              onSubmit={() => handleRegister()}>
+              onSubmit={(e) => handleRegister(e)}>
               <div>
                 <input 
                   className='input' 
-                  type='number' 
+                  type='tel' 
                   name='register-input' 
                   placeholder='Номер телефона'
                   required
