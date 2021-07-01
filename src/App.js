@@ -5,8 +5,10 @@ import { Route, Switch, BrowserRouter, Link } from 'react-router-dom';
 
 import * as api from './utils/api';
 
+import { store } from './redux/store';
+
 import Login from './components/Login';
-import Register from './components/Register'
+import Register from './components/Register';
 
 function App() {
 
@@ -14,13 +16,24 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      return
-    }
+    //if (localStorage.getItem('token')) {
+    //  return
+    //}
     api.takeTokens(generateRandomUuid())
     .then((res) => {
       localStorage.setItem('token', res.token)
       localStorage.setItem('refresh_token', res.refresh_token)
+      const changeToken = {
+        type: 'CHANGE_TOKEN',
+        payload: res.token
+      }
+      const changeRefreshToken = {
+        type: 'CHANGE_REFRESH_TOKEN',
+        payload: res.refresh_token
+      }
+      store.dispatch(changeToken);
+      store.dispatch(changeRefreshToken);
+      console.log(store.getState())
     })
   }, [])
 

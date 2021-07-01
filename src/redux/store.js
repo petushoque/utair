@@ -3,7 +3,9 @@ import { createStore } from 'redux'
 const initialState = {
     username: '',
     phone: '',
-    email: ''
+    email: '',
+    token: '',
+    refresh_token: '',
 }
 
 function reducer(state, action) {
@@ -12,6 +14,10 @@ function reducer(state, action) {
             return { ...state, username: action.payload }
         case 'CHANGE_PHONE':
             return { ...state, phone: action.payload }
+        case 'CHANGE_TOKEN':
+            return { ...state, token: action.payload }
+        case 'CHANGE_REFRESH_TOKEN':
+            return { ...state, refresh_token: action.payload }
     }
     return state;
 }
