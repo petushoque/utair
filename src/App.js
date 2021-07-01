@@ -9,6 +9,7 @@ import { store } from './redux/store';
 
 import Login from './components/Login';
 import Register from './components/Register';
+import Confirmation from './components/Confirmation';
 
 function App() {
 
@@ -51,6 +52,10 @@ function App() {
     .catch((err) => console.log(err))
   }
 
+  const handleConfirmLogin = (code) => {
+    console.log('Here is 4 numbers')
+  }
+
   const handleRegister = (phone) => {
     console.log('Register function will be here')
 
@@ -87,6 +92,10 @@ function App() {
 
           <Route exact path='/register'>
             <Register onRegister={handleRegister}/>
+          </Route>
+
+          <Route exact path='/confirmation'>
+            <Confirmation onConfirm={handleConfirmLogin}/>
           </Route>
 
         </Switch>

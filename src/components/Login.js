@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { store } from '../redux/store';
 
-function Login (props) {
+function Login(props) {
 
     const [phone, setPhone] = useState();
 
