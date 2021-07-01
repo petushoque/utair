@@ -42,3 +42,17 @@ export function register (token, phone, timestamp) {
     })
     .then(res => checkResponse(res))
 }
+
+export function login (token, phone) {
+  return fetch(`${BASE_URL}/account/profile/login`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    method: 'POST',
+    body: JSON.stringify({
+      login: phone
+      })
+    })
+    .then(res => checkResponse(res))
+}

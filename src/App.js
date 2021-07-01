@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     const hasToken = store.getState().token;
-    //if (hasToken) {return}
+    if (hasToken) {return}
     api.takeTokens(generateRandomUuid())
     .then((res) => {
       const changeToken = {
