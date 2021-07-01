@@ -1,12 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { useState, useEffect } from 'react'
-import { Redirect, Route, Switch, BrowserRouter, Link } from 'react-router-dom';
+import { Route, Switch, BrowserRouter, Link } from 'react-router-dom';
 
 import * as api from './utils/api';
 
-import Login from './components/Login'
+import Login from './components/Login';
+import Register from './components/Register'
 
 function App() {
 
@@ -29,7 +29,6 @@ function App() {
   }
 
   const handleRegister = (e) => {
-    e.preventDefault()
     console.log('Register function will be here')
   }
 
@@ -44,7 +43,7 @@ function App() {
   
   function generateRandomUuid() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
     });
   }
@@ -53,6 +52,7 @@ function App() {
     <BrowserRouter>
       <div className='app'>
         <Switch>
+
           <Route exact path='/'>
             <div className='main'>
               <Link className='button' to='/'>Купить билет</Link>
@@ -65,31 +65,7 @@ function App() {
           </Route>
 
           <Route exact path='/register'>
-            <form 
-              className='register'
-              onSubmit={(e) => handleRegister(e)}>
-              <div>
-                <input 
-                  className='input' 
-                  type='tel' 
-                  name='register-input' 
-                  placeholder='Номер телефона'
-                  required
-                  maxLength='12'/>
-                <p>Укажите ваш номер телефона. Он будет использоваться для входа в приложение</p>
-              </div>
-              <div>
-                <div className='register__agreement'>
-                  <input id='agreement' type='checkbox'/>
-                  <label htmlFor='agreement'>
-                    Я ознакомлен с условиями использования моих персональных данных и даю согласие на их обработку
-                  </label>
-                </div>
-                <button className='button' type='submit'>Продолжить</button>
-              </div>
-              <Link className='go-back-arrow' to='/'/>
-              <h2 className='register__title'>Регистрация в Utair</h2>
-            </form>
+            <Register onRegister={handleRegister}/>
           </Route>
 
         </Switch>
