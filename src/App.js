@@ -25,7 +25,6 @@ function App() {
   }, [])
 
   const handleLogin = (e) => {
-    e.preventDefault()
     console.log('Login function will be here')
   }
 
@@ -51,8 +50,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>    
-    <Login />
+    <BrowserRouter>
       <div className='app'>
         <Switch>
           <Route exact path='/'>
@@ -63,21 +61,7 @@ function App() {
           </Route>
 
           <Route exact path='/login'>
-            <form 
-              className='login'
-              onSubmit={(e) => handleLogin(e)}>
-              <input 
-                className='input' 
-                type='text' 
-                name='login-input' 
-                pattern="\+[0-9]{1,4}[0-9]{1,10}|(.*)@(.*)\.[a-z]{2,5}" 
-                placeholder='Номер телефона или Email'
-                onInput={(e) => handleInputChecker(e)}/>
-              <button className='button' type='submit'>Войти</button>
-              <p>Нет аккаунта?</p>
-              <Link className='login__to-register-link' to='register'>Зарегистрируйтесь</Link>
-              <Link className='go-back-arrow' to='/'/>
-            </form>
+            <Login onLogin={handleLogin}/>
           </Route>
 
           <Route exact path='/register'>
