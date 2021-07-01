@@ -4,7 +4,9 @@ import React from 'react';
 import { useState, useEffect } from 'react'
 import { Redirect, Route, Switch, BrowserRouter, Link } from 'react-router-dom';
 
-import * as api from './utils/api'
+import * as api from './utils/api';
+
+import Login from './components/Login'
 
 function App() {
 
@@ -50,9 +52,9 @@ function App() {
 
   return (
     <BrowserRouter>    
+    <Login />
       <div className='app'>
         <Switch>
-
           <Route exact path='/'>
             <div className='main'>
               <Link className='button' to='/'>Купить билет</Link>
