@@ -16,13 +16,10 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
-    //if (localStorage.getItem('token')) {
-    //  return
-    //}
+    const hasToken = store.getState().token;
+    if (hasToken) {return}
     api.takeTokens(generateRandomUuid())
     .then((res) => {
-      localStorage.setItem('token', res.token)
-      localStorage.setItem('refresh_token', res.refresh_token)
       const changeToken = {
         type: 'CHANGE_TOKEN',
         payload: res.token
@@ -33,8 +30,8 @@ function App() {
       }
       store.dispatch(changeToken);
       store.dispatch(changeRefreshToken);
-      console.log(store.getState())
     })
+    .catch((err) => console.log(err))
   }, [])
 
   const handleLogin = (e) => {

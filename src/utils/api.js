@@ -9,21 +9,36 @@ function checkResponse (res) {
 }
 
 export function takeTokens (uuid) {
-    return fetch(`${BASE_URL}/sessions/guest`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify({
-        appVersion:"Web",
-        brandName:"Web",
-        lang:"ru",
-        model:"Web",
-        osVersion:"Web",
-        platform:"web",
-        screenResolution:"Web",
-        udid: uuid,
+  return fetch(`${BASE_URL}/sessions/guest`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'POST',
+    body: JSON.stringify({
+      appVersion:"Web",
+      brandName:"Web",
+      lang:"ru",
+      model:"Web",
+      osVersion:"Web",
+      platform:"web",
+      screenResolution:"Web",
+      udid: uuid,
       })
     })
     .then(res => checkResponse(res))
-  }
+}
+
+export function register (token, phone, timestamp) {
+  return fetch(`${BASE_URL}/account/profile`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': token
+    },
+    method: 'POST',
+    body: JSON.stringify({
+      login: phone, 
+      confirmationGDPRDate: timestamp
+      })
+    })
+    .then(res => checkResponse(res))
+}
