@@ -1,12 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { store } from '../redux/store';
 
 function Register (props) {
 
+  const [phone, setPhone] = useState()
+
     const handleRegister = (e) => {        
         e.preventDefault()
-        props.onRegister()
+        props.onRegister(phone)
     }
 
     //const handleInputChecker = (e) => {
@@ -24,7 +27,9 @@ function Register (props) {
             name='register-input' 
             placeholder='Номер телефона'
             required
-            maxLength='12'/>
+            maxLength='12'
+            defaultValue={phone}
+            onInput={(e) => setPhone(e.target.value)}/>
           <p>Укажите ваш номер телефона. Он будет использоваться для входа в приложение</p>
         </div>
         <div>

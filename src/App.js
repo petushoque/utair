@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     const hasToken = store.getState().token;
-    if (hasToken) {return}
+    //if (hasToken) {return}
     api.takeTokens(generateRandomUuid())
     .then((res) => {
       const changeToken = {
@@ -38,8 +38,14 @@ function App() {
     console.log('Login function will be here')
   }
 
-  const handleRegister = (e) => {
+  const handleRegister = (phone) => {
     console.log('Register function will be here')
+
+    const token = store.getState().token;
+    const time = Date.now() / 1000 | 0;
+
+    api.register(token, phone, time)
+    .then((res) => console.log(res))
   }
 
   const handleInputChecker = (e) => {

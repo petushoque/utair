@@ -32,7 +32,7 @@ export function register (token, phone, timestamp) {
   return fetch(`${BASE_URL}/account/profile`, {
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': token
+      'Authorization': `Bearer ${token}`
     },
     method: 'POST',
     body: JSON.stringify({
