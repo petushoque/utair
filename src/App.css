@@ -247,10 +247,31 @@
   cursor: pointer;
 }
 
-.confirmation__special-key {
-  width: 33.3%;
-}
 
 .confirmation__key:hover {
   background: #DFE3EB;
+}
+
+.confirmation__special-key {
+  width: 33.3%;
+  height: 40px;
+  cursor: pointer;
+}
+
+.confirmation__special-key_backspace {
+  background-image: url(./images/backspace.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 17.5px 12.5px;  
+}
+
+.confirmation__special-key_info {
+  font-family: Arial;
+  font-size: 9.51927px;
+  line-height: 13px;
+  text-align: center;
+  color: #003594;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

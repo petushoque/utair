@@ -76,21 +76,19 @@ function Confirmation(props) {
                     </div>
                 </div>
                 <div className='confirmation__row'>
-                    <div className='confirmation__special-key'>
-                            Не пришло письмо?
+                    <div className='confirmation__special-key confirmation__special-key_info'>
+                            Не пришло<br/>письмо?
                     </div>
                     <div className='confirmation__keyboard-number'>
                         <button type='button' className='confirmation__key'>
                             0
                         </button>
                     </div>
-                    <div className='confirmation__special-key'>
+                    <div className='confirmation__special-key confirmation__special-key_backspace'>
                             
                     </div>
                 </div>
             </div>
-
-            <button className='button' type='submit'>Войти</button>
             <Link className='go-back-arrow' to='/'/>
             <h2 className='confirmation__title'>Подтверждение</h2>
         </form>
