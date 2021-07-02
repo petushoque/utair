@@ -228,7 +228,29 @@
 
 .confirmation__keyboard-number {
   flex-grow: 1;
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmation__key {
+  background-color: white;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  font-family: Arial;
+  font-size: 22.2116px;
+  line-height: 29px;
+  text-align: center;
+  color: #1B2127;
+  border: none;
+  cursor: pointer;
+}
+
+.confirmation__special-key {
+  width: 33.3%;
+}
+
+.confirmation__key:hover {
+  background: #DFE3EB;
 }

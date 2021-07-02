@@ -26,13 +26,66 @@ function Confirmation(props) {
             <div className='confirmation__keyboard'>
                 <div className='confirmation__row'>
                     <div className='confirmation__keyboard-number'>
-                        1
+                        <button type='button' className='confirmation__key'>
+                            1
+                        </button>
                     </div>
                     <div className='confirmation__keyboard-number'>
-                        2
+                        <button type='button' className='confirmation__key'>
+                            2
+                        </button>
                     </div>
                     <div className='confirmation__keyboard-number'>
-                        3
+                        <button type='button' className='confirmation__key'>
+                            3
+                        </button>
+                    </div>
+                </div>
+                <div className='confirmation__row'>
+                    <div className='confirmation__keyboard-number'>
+                        <button type='button' className='confirmation__key'>
+                            4
+                        </button>
+                    </div>
+                    <div className='confirmation__keyboard-number'>
+                        <button type='button' className='confirmation__key'>
+                            5
+                        </button>
+                    </div>
+                    <div className='confirmation__keyboard-number'>
+                        <button type='button' className='confirmation__key'>
+                            6
+                        </button>
+                    </div>
+                </div>
+                <div className='confirmation__row'>
+                    <div className='confirmation__keyboard-number'>
+                        <button type='button' className='confirmation__key'>
+                            7
+                        </button>
+                    </div>
+                    <div className='confirmation__keyboard-number'>
+                        <button type='button' className='confirmation__key'>
+                            8
+                        </button>
+                    </div>
+                    <div className='confirmation__keyboard-number'>
+                        <button type='button' className='confirmation__key'>
+                            9
+                        </button>
+                    </div>
+                </div>
+                <div className='confirmation__row'>
+                    <div className='confirmation__special-key'>
+                            Не пришло письмо?
+                    </div>
+                    <div className='confirmation__keyboard-number'>
+                        <button type='button' className='confirmation__key'>
+                            0
+                        </button>
+                    </div>
+                    <div className='confirmation__special-key'>
+                            
                     </div>
                 </div>
             </div>
