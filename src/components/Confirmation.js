@@ -23,6 +23,19 @@ function Confirmation(props) {
                 <input maxLength='1' type='text' pattern='[0-9]'/>
                 <input maxLength='1' type='text' pattern='[0-9]'/>
             </div>
+            <div className='confirmation__keyboard'>
+                <div className='confirmation__row'>
+                    <div className='confirmation__keyboard-number'>
+                        1
+                    </div>
+                    <div className='confirmation__keyboard-number'>
+                        2
+                    </div>
+                    <div className='confirmation__keyboard-number'>
+                        3
+                    </div>
+                </div>
+            </div>
 
             <button className='button' type='submit'>Войти</button>
             <Link className='go-back-arrow' to='/'/>

@@ -211,3 +211,24 @@
   border: none;
   border-bottom: 2px solid #DFE3EB;
 }
+
+.confirmation__keyboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.confirmation__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.confirmation__keyboard-number {
+  flex-grow: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+}
