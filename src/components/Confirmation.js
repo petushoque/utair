@@ -8,12 +8,13 @@ function Confirmation(props) {
     const [numbers, setNumbers] = useState({one: '', two: '', three: '', four: ''})
 
     useEffect(() => {
-        //как только все 4 числа будут заполнены, отравлять пост-запрос
+        handleSubmit()
     }, [numbers])
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        props.onConfirm(numbers)
+    const handleSubmit = () => {
+        const code = numbers.one + numbers.two + numbers.three + numbers.four
+        if (code.length !== 4) {return}
+        props.onConfirm(code)
     }
 
     const handleInput = (val) => {
