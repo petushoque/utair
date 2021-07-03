@@ -17,19 +17,36 @@ function Confirmation(props) {
     }
 
     const handleInput = (val) => {
-        if (numbers.one) {
-            if (numbers.two) {
-                if (numbers.three) {
-                    if (numbers.four) {
-                        return
+        //обработка клавишь с цифрами
+        if (val !== 'back') {
+            if (numbers.one) {
+                if (numbers.two) {
+                    if (numbers.three) {
+                        if (numbers.four) {
+                            return
+                        }
+                        else setNumbers({... numbers, four: val})
                     }
-                    else setNumbers({... numbers, four: val})
+                    else setNumbers({... numbers, three: val})
                 }
-                else setNumbers({... numbers, three: val})
+                else setNumbers({... numbers, two: val})
             }
-            else setNumbers({... numbers, two: val})
+            else setNumbers({... numbers, one: val})
         }
-        else setNumbers({... numbers, one: val})
+        //обработка бэкспейса
+        else {
+            if (numbers.four) {setNumbers({... numbers, four: ''})}
+            else {
+                if (numbers.three) {setNumbers({... numbers, three: ''})}
+                else {
+                    if (numbers.two) {setNumbers({... numbers, two: ''})}
+                    else {
+                        if (numbers.one) {setNumbers({... numbers, one: ''})}
+                        else return
+                    }
+                }
+            }
+        }
     }
 
     return (        
@@ -134,8 +151,9 @@ function Confirmation(props) {
                                 0
                         </button>
                     </div>
-                    <div className='confirmation__special-key confirmation__special-key_backspace'>
-                            
+                    <div 
+                        className='confirmation__special-key confirmation__special-key_backspace'
+                        onClick={() => handleInput('back')}>                     
                     </div>
                 </div>
             </div>
