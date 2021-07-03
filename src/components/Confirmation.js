@@ -23,9 +23,7 @@ function Confirmation(props) {
             if (numbers.one) {
                 if (numbers.two) {
                     if (numbers.three) {
-                        if (numbers.four) {
-                            return
-                        }
+                        if (numbers.four) {return}
                         else setNumbers({... numbers, four: val})
                     }
                     else setNumbers({... numbers, three: val})

@@ -53,7 +53,7 @@ function App() {
   }
 
   const handleConfirmLogin = (code) => {
-    console.log('Here is 4 numbers')
+    console.log('Here is 4 numbers: ', code)
   }
 
   const handleRegister = (phone) => {
