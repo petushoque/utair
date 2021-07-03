@@ -19,12 +19,17 @@ function Confirmation(props) {
     const handleInput = (val) => {
         if (numbers.one) {
             if (numbers.two) {
-                return
+                if (numbers.three) {
+                    if (numbers.four) {
+                        return
+                    }
+                    else setNumbers({... numbers, four: val})
+                }
+                else setNumbers({... numbers, three: val})
             }
             else setNumbers({... numbers, two: val})
         }
         else setNumbers({... numbers, one: val})
-        console.log(val)
     }
 
     return (        
