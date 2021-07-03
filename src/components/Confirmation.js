@@ -1,15 +1,23 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { store } from '../redux/store';
 
 function Confirmation(props) {
 
-    const [numbers, setNumbers] = useState(['','','',''])
+    const [numbers, setNumbers] = useState({one: '', two: '', three: '', four: ''})
+
+    useEffect(() => {
+        //как только все 4 числа будут заполнены, отравлять пост-запрос
+    }, [numbers])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         props.onConfirm(numbers)
+    }
+
+    const handleInput = (val) => {
+
     }
 
     return (        
@@ -18,7 +26,7 @@ function Confirmation(props) {
             onSubmit={(e) => handleSubmit(e)}>
             <p>Введите код из SMS, отправленный на номер +7 (916) 792-89-70</p>
             <div className='confirmation__nambers'>
-                <input maxLength='1' type='text' pattern='[0-9]'/>
+                <input defaultValue={numbers.one || ''} maxLength='1' type='text' pattern='[0-9]' onInput={(e) => setNumbers({... numbers, one: e.target.value})}/>
                 <input maxLength='1' type='text' pattern='[0-9]'/>
                 <input maxLength='1' type='text' pattern='[0-9]'/>
                 <input maxLength='1' type='text' pattern='[0-9]'/>
