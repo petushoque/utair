@@ -17,7 +17,14 @@ function Confirmation(props) {
     }
 
     const handleInput = (val) => {
-
+        if (numbers.one) {
+            if (numbers.two) {
+                return
+            }
+            else setNumbers({... numbers, two: val})
+        }
+        else setNumbers({... numbers, one: val})
+        console.log(val)
     }
 
     return (        
@@ -27,59 +34,86 @@ function Confirmation(props) {
             <p>Введите код из SMS, отправленный на номер +7 (916) 792-89-70</p>
             <div className='confirmation__nambers'>
                 <input defaultValue={numbers.one || ''} maxLength='1' type='text' pattern='[0-9]' onInput={(e) => setNumbers({... numbers, one: e.target.value})}/>
-                <input maxLength='1' type='text' pattern='[0-9]'/>
-                <input maxLength='1' type='text' pattern='[0-9]'/>
-                <input maxLength='1' type='text' pattern='[0-9]'/>
+                <input defaultValue={numbers.two || ''} maxLength='1' type='text' pattern='[0-9]'/>
+                <input defaultValue={numbers.three || ''} maxLength='1' type='text' pattern='[0-9]'/>
+                <input defaultValue={numbers.four || ''} maxLength='1' type='text' pattern='[0-9]'/>
             </div>
             <div className='confirmation__keyboard'>
                 <div className='confirmation__row'>
                     <div className='confirmation__keyboard-number'>
-                        <button type='button' className='confirmation__key'>
-                            1
+                        <button 
+                            type='button' 
+                            className='confirmation__key' 
+                            onClick={(e) => handleInput(e.target.innerText)}>
+                                1
                         </button>
                     </div>
                     <div className='confirmation__keyboard-number'>
-                        <button type='button' className='confirmation__key'>
-                            2
+                        <button 
+                            type='button' 
+                            className='confirmation__key' 
+                            onClick={(e) => handleInput(e.target.innerText)}>
+                                2
                         </button>
                     </div>
                     <div className='confirmation__keyboard-number'>
-                        <button type='button' className='confirmation__key'>
-                            3
-                        </button>
-                    </div>
-                </div>
-                <div className='confirmation__row'>
-                    <div className='confirmation__keyboard-number'>
-                        <button type='button' className='confirmation__key'>
-                            4
-                        </button>
-                    </div>
-                    <div className='confirmation__keyboard-number'>
-                        <button type='button' className='confirmation__key'>
-                            5
-                        </button>
-                    </div>
-                    <div className='confirmation__keyboard-number'>
-                        <button type='button' className='confirmation__key'>
-                            6
+                        <button 
+                            type='button' 
+                            className='confirmation__key'
+                            onClick={(e) => handleInput(e.target.innerText)}>
+                                3
                         </button>
                     </div>
                 </div>
                 <div className='confirmation__row'>
                     <div className='confirmation__keyboard-number'>
-                        <button type='button' className='confirmation__key'>
-                            7
+                        <button 
+                            type='button' 
+                            className='confirmation__key'
+                            onClick={(e) => handleInput(e.target.innerText)}>
+                                4
                         </button>
                     </div>
                     <div className='confirmation__keyboard-number'>
-                        <button type='button' className='confirmation__key'>
-                            8
+                        <button 
+                            type='button' 
+                            className='confirmation__key'
+                            onClick={(e) => handleInput(e.target.innerText)}>
+                                5
                         </button>
                     </div>
                     <div className='confirmation__keyboard-number'>
-                        <button type='button' className='confirmation__key'>
-                            9
+                        <button 
+                            type='button' 
+                            className='confirmation__key'
+                            onClick={(e) => handleInput(e.target.innerText)}>
+                                6
+                        </button>
+                    </div>
+                </div>
+                <div className='confirmation__row'>
+                    <div className='confirmation__keyboard-number'>
+                        <button 
+                            type='button' 
+                            className='confirmation__key'
+                            onClick={(e) => handleInput(e.target.innerText)}>
+                                7
+                        </button>
+                    </div>
+                    <div className='confirmation__keyboard-number'>
+                        <button 
+                            type='button' 
+                            className='confirmation__key'
+                            onClick={(e) => handleInput(e.target.innerText)}>
+                                8
+                        </button>
+                    </div>
+                    <div className='confirmation__keyboard-number'>
+                        <button 
+                            type='button' 
+                            className='confirmation__key'
+                            onClick={(e) => handleInput(e.target.innerText)}>
+                                9
                         </button>
                     </div>
                 </div>
@@ -88,8 +122,11 @@ function Confirmation(props) {
                             Не пришло<br/>письмо?
                     </div>
                     <div className='confirmation__keyboard-number'>
-                        <button type='button' className='confirmation__key'>
-                            0
+                        <button 
+                            type='button' 
+                            className='confirmation__key'
+                            onClick={(e) => handleInput(e.target.innerText)}>
+                                0
                         </button>
                     </div>
                     <div className='confirmation__special-key confirmation__special-key_backspace'>
