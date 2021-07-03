@@ -57,7 +57,7 @@ export function login(token, phone) {
     .then(res => checkResponse(res))
 }
 
-export function confirmLogin(id, code) {
+export function confirmLogin(token, id, code) {
   return fetch(`${BASE_URL}/account/profile/login/confirm`, {
     headers: {
       'Content-Type': 'application/json',

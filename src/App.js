@@ -48,6 +48,8 @@ function App() {
         payload: res.token
       }
       store.dispatch(changeAttemptId);
+
+      console.log(store.getState())
     })
     .catch((err) => console.log(err))
   }
