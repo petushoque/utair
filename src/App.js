@@ -71,15 +71,21 @@ function App() {
   const handleRegister = (phone) => {
     console.log('Register function will be here')
 
+    setIsLoading(true)
+
     const token = store.getState().token;
     const time = Date.now() / 1000 | 0;
 
     api.register(token, phone, time)
     .then((res) => {
       console.log(res)
+      setIsLoading(false)
       document.location.href = '/login'
       })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+      setIsLoading(false)
+      console.log(err)
+      })
   }
   
   function generateRandomUuid() {
@@ -106,7 +112,7 @@ function App() {
           </Route>
 
           <Route exact path='/register'>
-            <Register onRegister={handleRegister}/>
+            <Register onRegister={handleRegister} isLoading={isLoading}/>
           </Route>
 
           <Route exact path='/confirmation'>
