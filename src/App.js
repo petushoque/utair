@@ -40,15 +40,22 @@ function App() {
 
     const token = store.getState().token;
 
+    // ===== ТЕСТ ===== //
+    console.log(store.getState())
+
     api.login(token, phone)
     .then((res) => {
       console.log(res)
       const changeAttemptId = {
         type: 'CHANGE_ATTEMPT_ID',
-        payload: res.token
+        payload: res.attemptId
       }
+
+      console.log(changeAttemptId)
+
       store.dispatch(changeAttemptId);
 
+      // ===== ТЕСТ ===== //
       console.log(store.getState())
     })
     .catch((err) => console.log(err))
