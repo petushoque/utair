@@ -45,24 +45,25 @@ function App() {
 
     api.login(token, phone)
     .then((res) => {
-      console.log(res)
       const changeAttemptId = {
         type: 'CHANGE_ATTEMPT_ID',
         payload: res.attemptId
       }
-
-      console.log(changeAttemptId)
-
       store.dispatch(changeAttemptId);
 
       // ===== ТЕСТ ===== //
-      console.log(store.getState())
+      console.log('Стор на момент логина',store.getState())
+      // ===== ТЕТ =====//
     })
     .catch((err) => console.log(err))
   }
 
   const handleConfirmLogin = (code) => {
     console.log('Here is 4 numbers: ', code)
+
+    const token = store.getState().token;
+    const id = store.getState().attemptId;
+    api.confirmLogin(token, id, code)
   }
 
   const handleRegister = (phone) => {
