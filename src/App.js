@@ -75,7 +75,10 @@ function App() {
     const time = Date.now() / 1000 | 0;
 
     api.register(token, phone, time)
-    .then((res) => console.log(res))
+    .then((res) => {
+      console.log(res)
+      document.location.href = '/login'
+      })
     .catch((err) => console.log(err))
   }
   
