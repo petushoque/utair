@@ -38,6 +38,8 @@ function App() {
   const handleLogin = (phone) => {
     console.log('Login function will be here')
 
+    setIsLoading(true)
+
     const token = store.getState().token;
 
     // ===== ТЕСТ ===== //
@@ -56,8 +58,13 @@ function App() {
       // ===== ТЕТ =====//
 
       document.location.href = '/confirmation'
+
+      setIsLoading(false)
     })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+      console.log(err)
+      setIsLoading(false)
+    })
   }
 
   const handleConfirmLogin = (code) => {
@@ -108,7 +115,7 @@ function App() {
           </Route>
 
           <Route exact path='/login'>
-            <Login onLogin={handleLogin}/>
+            <Login onLogin={handleLogin} isLoading={isLoading}/>
           </Route>
 
           <Route exact path='/register'>
