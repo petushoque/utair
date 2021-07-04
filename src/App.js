@@ -54,6 +54,8 @@ function App() {
       // ===== ТЕСТ ===== //
       console.log('Стор на момент логина',store.getState())
       // ===== ТЕТ =====//
+
+      document.location.href = '/confirmation'
     })
     .catch((err) => console.log(err))
   }
