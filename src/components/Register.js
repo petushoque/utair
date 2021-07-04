@@ -6,15 +6,13 @@ import { store } from '../redux/store';
 function Register(props) {
 
   const [phone, setPhone] = useState()
+  const [agreementChecked, setAgreementChecked] = useState(false)
 
     const handleRegister = (e) => {        
         e.preventDefault()
-        props.onRegister(phone)
+        if (agreementChecked) {props.onRegister(phone)}
+        else {console.log('Не поставлен флажок под соглашением')}
     }
-
-    //const handleInputChecker = (e) => {
-    //    console.log(e.target.value)
-    //}
 
     return (        
         <form 
@@ -37,7 +35,7 @@ function Register(props) {
         null}        
         <div>
           <div className='register__agreement'>
-            <input id='agreement' type='checkbox'/>
+            <input id='agreement' type='checkbox' defaultValue={agreementChecked} onChange={e => setAgreementChecked(e.target.checked)}/>
             <label htmlFor='agreement'>
               Я ознакомлен с условиями использования моих персональных данных и даю согласие на их обработку
             </label>
