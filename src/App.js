@@ -13,8 +13,8 @@ import Confirmation from './components/Confirmation';
 
 function App() {
 
-  const [loader, setLoader] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+  //const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
     const hasToken = store.getState().token;

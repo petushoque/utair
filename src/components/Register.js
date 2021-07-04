@@ -32,6 +32,8 @@ function Register(props) {
             onInput={(e) => setPhone(e.target.value)}/>
           <p>Укажите ваш номер телефона. Он будет использоваться для входа в приложение</p>
         </div>
+        <div className='loader'>
+        </div>
         <div>
           <div className='register__agreement'>
             <input id='agreement' type='checkbox'/>
