@@ -73,6 +73,9 @@ function App() {
     const token = store.getState().token;
     const id = store.getState().attemptId;
     api.confirmLogin(token, id, code)
+    .then((res) => {
+      document.location.href = '/'
+    })
   }
 
   const handleRegister = (phone) => {
@@ -110,7 +113,7 @@ function App() {
           <Route exact path='/'>
             <div className='main'>
               <Link className='button' to='/'>Купить билет</Link>
-              {isLoggedIn ? 
+              {!isLoggedIn ? 
                 <Link className='button' to='/login'>Войти</Link> : 
                 (<>
                 <p>Привет, %userName</p>
