@@ -53,7 +53,7 @@ function Confirmation(props) {
             className='confirmation'
             onSubmit={(e) => handleSubmit(e)}>
             <p>Введите код из SMS, отправленный на номер +7 (916) 792-89-70</p>
-            <div className='confirmation__nambers'>
+            <div className='confirmation__numbers'>
                 <input defaultValue={numbers.one || ''} maxLength='1' type='text' pattern='[0-9]' onInput={(e) => setNumbers({... numbers, one: e.target.value})}/>
                 <input defaultValue={numbers.two || ''} maxLength='1' type='text' pattern='[0-9]'/>
                 <input defaultValue={numbers.three || ''} maxLength='1' type='text' pattern='[0-9]'/>

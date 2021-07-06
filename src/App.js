@@ -74,6 +74,7 @@ function App() {
     const id = store.getState().attemptId;
     api.confirmLogin(token, id, code)
     .then((res) => {
+      console.log(res)
       document.location.href = '/'
     })
   }
