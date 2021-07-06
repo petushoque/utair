@@ -110,7 +110,12 @@ function App() {
           <Route exact path='/'>
             <div className='main'>
               <Link className='button' to='/'>Купить билет</Link>
-              {isLoggedIn ? <Link className='button' to='/login'>Войти</Link> : null}                       
+              {isLoggedIn ? 
+                <Link className='button' to='/login'>Войти</Link> : 
+                (<>
+                <p>Привет, %userName</p>
+                <p>Выйти</p>
+                </>)}                       
             </div>
           </Route>
 
