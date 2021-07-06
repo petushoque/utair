@@ -14,7 +14,7 @@ import Confirmation from './components/Confirmation';
 function App() {
 
   const [isLoading, setIsLoading] = useState(false);
-  //const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
     const hasToken = store.getState().token;
@@ -110,7 +110,7 @@ function App() {
           <Route exact path='/'>
             <div className='main'>
               <Link className='button' to='/'>Купить билет</Link>
-              <Link className='button' to='/login'>Войти</Link>          
+              {isLoggedIn ? <Link className='button' to='/login'>Войти</Link> : null}                       
             </div>
           </Route>
 
