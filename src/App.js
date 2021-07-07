@@ -51,7 +51,12 @@ function App() {
         type: 'CHANGE_ATTEMPT_ID',
         payload: res.attemptId
       }
+      const changePhone = {
+        type: 'CHANGE_PHONE',
+        payload: phone
+      }
       store.dispatch(changeAttemptId);
+      store.dispatch(changePhone);
 
       // ===== ТЕСТ ===== //
       console.log('Стор на момент логина',store.getState())
