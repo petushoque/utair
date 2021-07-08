@@ -58,7 +58,7 @@ function Confirmation(props) {
             <p>Введите код из SMS, отправленный на номер {phoneNumber}</p>
             <div className='confirmation__numbers'>
                 <input defaultValue={numbers.one || ''} maxLength='1' type='text' pattern='[0-9]' onInput={(e) => setNumbers({... numbers, one: e.target.value})}/>
-                <input defaultValue={numbers.two || ''} maxLength='1' type='text' pattern='[0-9]'/>
+                <input defaultValue={numbers.two || ''} maxLength='1' type='text' pattern='[0-9]' onInput={(e) => setNumbers({... numbers, two: e.target.value})}/>
                 <input defaultValue={numbers.three || ''} maxLength='1' type='text' pattern='[0-9]'/>
                 <input defaultValue={numbers.four || ''} maxLength='1' type='text' pattern='[0-9]'/>
             </div>
