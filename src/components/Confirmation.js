@@ -60,7 +60,7 @@ function Confirmation(props) {
                 <input defaultValue={numbers.one || ''} maxLength='1' type='text' pattern='[0-9]' onInput={(e) => setNumbers({... numbers, one: e.target.value})}/>
                 <input defaultValue={numbers.two || ''} maxLength='1' type='text' pattern='[0-9]' onInput={(e) => setNumbers({... numbers, two: e.target.value})}/>
                 <input defaultValue={numbers.three || ''} maxLength='1' type='text' pattern='[0-9]' onInput={(e) => setNumbers({... numbers, three: e.target.value})}/>
-                <input defaultValue={numbers.four || ''} maxLength='1' type='text' pattern='[0-9]'/>
+                <input defaultValue={numbers.four || ''} maxLength='1' type='text' pattern='[0-9]' onInput={(e) => setNumbers({... numbers, four: e.target.value})}/>
             </div>
             <div className='confirmation__keyboard'>
                 <div className='confirmation__row'>
